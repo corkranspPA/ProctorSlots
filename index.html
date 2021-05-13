@@ -5,18 +5,53 @@
     <meta name="viewport" content="width=device-width">
     <title>repl.it</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script>
-      function change()
-      {
-        var txt = document.getElementById("mytxt");
-        document.write("Hi There!")
-        console.log(txt)
-        txt.value = "Hi There!";
-      }
-    </script>
   </head>
   <body>
-    <p id="mytxt"></p>
-    <button id="mybtn" onclick="change()">me when i see your mom!</button>
+    <p id="reel1"></p>
+    <p id="reel2"></p>
+    <p id="reel3"></p>
+    <p id="winlose"></p>
+
+<script>
+function randomsymbolgood() {
+  return (parseInt(Math.random() * 10 + 1));  
+} 
+function randomsymbolbad() {
+  return (parseInt(Math.random() * 10 + 1));  
+}
+
+function rollReel1() {
+  if (parseInt(Math.random() * 10 + 1) < 7 )
+  
+    return randomsymbolgood();
+  else 
+    return randomsymbolbad();
+}
+function rollReel2() {
+  if (parseInt(Math.random() * 10 + 1) < 3 )
+  
+    return randomsymbolgood();
+  else 
+    return randomsymbolbad();
+}
+function rollReel3() {
+  if (parseInt(Math.random() * 10 + 1) == 5 )
+  
+    return randomsymbolgood();
+  else 
+    return randomsymbolbad();
+}
+document.getElementById("reel1").innerHTML = rollReel1(); 
+document.getElementById("reel2").innerHTML = rollReel2();
+document.getElementById("reel3").innerHTML = rollReel3();
+document.getElementById("winlose").innerHTML = winnerwinner();
+
+function winnerwinner() {
+if (rollReel1() == rollReel2() && rollReel2() == rollReel3())
+  return true;
+else
+  return false;
+}
   </body>
+    
 </html>
