@@ -10,8 +10,9 @@
 		<script src="script.js"></script>
     	<form action="https://sheetdb.io/api/v1/49m5sr28e2ey5" method="POST" id="sheetdb-form">
   			Name: <input name="data[name]">
- 			<button type="submit">Submit</button>
-		</form>
+ 			<button type="submit">begin</button>
+			<output numbers="data[reel1]"></output>
+	</form>
 
 		<script>
   			var form = document.getElementById('sheetdb-form');
@@ -28,7 +29,22 @@
 				});
   			});
 		</script>
-		<p id="reel1"></p>
+		<script>
+  			var form = document.getElementById('reel1');
+  			form.addEventListener("submit", e => {
+				e.preventDefault();
+				fetch(form.action, {
+					method : "POST",
+						body: new FormData(document.getElementById("reelr")),
+			}).then(
+					response => response.json()
+				).then((html) => {
+					// you can put any JS code here
+					alert('success')
+				});
+  			});
+		</script>
+	<p id="reel1">5&nbsp;&nbsp;</p>
 		<p id="reel2"></p>
 		<p id="reel3"></p>
 		<p id="winlose"></p>
